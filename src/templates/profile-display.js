@@ -1,3 +1,5 @@
+import { auth } from '../firebase/firebase.js';
+
 export function makeProfileDisplay(user) {
     const html = `
         <span id="profile-display">
@@ -11,3 +13,13 @@ export function makeProfileDisplay(user) {
     template.innerHTML = html;
     return template.content;
 }
+
+const profileDisplay = document.getElementById('header');
+
+export default function loadProfileDisplay() {
+    auth.onAuthStateChanged(user => {
+        const profileDisplayDom = makeProfileDisplay(user);
+
+        profileDisplay.appendChild(profileDisplayDom);
+    });
+} 
