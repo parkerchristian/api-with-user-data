@@ -18,8 +18,16 @@ const profileDisplay = document.getElementById('header');
 
 export default function loadProfileDisplay() {
     auth.onAuthStateChanged(user => {
-        const profileDisplayDom = makeProfileDisplay(user);
-
-        profileDisplay.appendChild(profileDisplayDom);
+        if(user) {
+            const profileDisplayDom = makeProfileDisplay(user);
+            const signOutButton = profileDisplayDom.querySelector('input');
+            
+            signOutButton.addEventListener('click', () => {
+                auth.signOut();
+            });
+            profileDisplay.appendChild(profileDisplayDom);
+        } else {
+            window.location = './auth.html';
+        }
     });
 } 
