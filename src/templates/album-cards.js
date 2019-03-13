@@ -11,3 +11,13 @@ export function makeAlbumCard(album) {
     template.innerHTML = html;
     return template.content;
 }
+
+const albumList = document.getElementById('album-list');
+
+export default function loadAlbums(albums) {
+    albums.forEach(album => {
+        const albumCard = makeAlbumCard(album);
+        
+        albumList.appendChild(albumCard);
+    });
+}
