@@ -1,9 +1,8 @@
 import loadProfileDisplay from './templates/profile-display.js';
 import { encodedData } from './firebase/spotify-token-header.js';
+import loadAlbums from './templates/album-cards.js';
 
 loadProfileDisplay();
-
-const albumList = document.getElementById('album-list');
 
 const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
 const basePostUrl = 'https://accounts.spotify.com/api/token';
@@ -36,6 +35,7 @@ fetch(postUrl, postOptions)
         fetch(getUrl, getOptions)
             .then(response => response.json())
             .then(body => {
-                console.log('HEY IT DID A THING!', body);
+                console.log(body.albums.items);
+                loadAlbums(body.albums.items);
             });
     });
