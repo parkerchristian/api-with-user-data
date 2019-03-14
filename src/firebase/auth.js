@@ -4,20 +4,15 @@ import { auth, userRef } from './firebase.js';
 const ui = new firebaseui.auth.AuthUI(auth);
 
 ui.start('#auth-ui-section', {
-    //Everything below is a key/value pair
-    //signInOptions
     signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID
     ],
-    //signInSuccsessful
     signInSuccessUrl: './',
-    //credentialHelper
     callbacks: {
-        signInSucessWithAuthResult: function(authResult) {
+        signInSuccessWithAuthResult(authResult) {
             const user = authResult.user;
-            console.log('OUR LOG', authResult);
             userRef.child(user.uid)
                 .set({
                     uid: user.uid,
@@ -26,9 +21,6 @@ ui.start('#auth-ui-section', {
                 });
             return true;
         }
-
     }
-    //callbacks : set user to database
-
 });
  
