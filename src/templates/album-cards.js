@@ -16,9 +16,16 @@ export function makeAlbumCard(album) {
 const albumList = document.getElementById('album-list');
 
 export default function loadAlbums(albums) {
+    clearDisplay();
     albums.forEach(album => {
         const albumCard = makeAlbumCard(album);
         
         albumList.appendChild(albumCard);
     });
+}
+
+function clearDisplay() {
+    while(albumList.children.length > 0) {
+        albumList.lastElementChild.remove();
+    }
 }
