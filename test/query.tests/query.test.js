@@ -1,12 +1,8 @@
+import { readFromQuery, writeToQuery } from '../../src/hash-query/query-components.js';
+
 const test = QUnit.test;
 
 QUnit.module('QUERY TESTS');
-
-function writeToQuery(existingQuery, searchTerm) {
-    const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('q', searchTerm);
-    return searchParams.toString();
-}
 
 test('write search to query test', assert => {
     // arrange
@@ -29,14 +25,6 @@ test('write a search to an existing query', assert => {
     // assert
     assert.equal(result, expected);
 });
-
-function readFromQuery(existingQuery) {
-    const searchParams = new URLSearchParams(existingQuery);
-    const queryObject = {
-        q: searchParams.get('q')
-    };
-    return queryObject;
-}
 
 test('read query to object', assert => {
     //Arrange
