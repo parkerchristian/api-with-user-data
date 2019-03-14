@@ -1,6 +1,8 @@
 import loadProfileDisplay from './templates/profile-display.js';
 import { encodedData } from './firebase/spotify-token-header.js';
 import loadAlbums from './templates/album-cards.js';
+import { readFromQuery } from './hash-query/query-components.js';
+import { makeURL } from './hash-query/make-url.js';
 import './hash-query/search-components.js';
 
 loadProfileDisplay();
@@ -19,7 +21,16 @@ const postOptions = {
     body: 'grant_type=client_credentials'
 };
 
-const baseGetUrl = 'https://api.spotify.com/v1/search?q=cher&type=album&market=US';
+let baseGetUrl = null;
+
+window.addEventListener('hashchange', () => {
+    const existingQuery = window.location.hash.slice(1);
+    const searchOptions = readFromQuery(existingQuery);
+    baseGetUrl = makeURL(searchOptions);
+    console.log('!!!', baseGetUrl);
+});
+
+// const baseGetUrl = 'https://api.spotify.com/v1/search?q=cher&type=album&market=US';
 const getUrl = corsAnywhereUrl + baseGetUrl;
 
 // fetch(postUrl, postOptions)
