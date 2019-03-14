@@ -52,6 +52,7 @@ export default function loadAlbums(albums) {
                 isFavorite = true;
                 favoriteNode.classList.add('favorite');
                 favoritedAlbumRef.set({
+                    id: album.id,
                     name: album.name,
                     images: album.images,
                     artists: album.artists

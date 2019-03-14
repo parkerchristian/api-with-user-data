@@ -12,5 +12,5 @@ window.addEventListener('hashchange', () => {
     const existingQuery = window.location.hash.slice(1);
     const searchOptions = readFromQuery(existingQuery);
     baseGetUrl = makeURL(searchOptions);
-    // fetchSpotifyApi(baseGetUrl);
+    fetchSpotifyApi(baseGetUrl);
 });
