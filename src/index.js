@@ -35,7 +35,6 @@ fetch(postUrl, postOptions)
         fetch(getUrl, getOptions)
             .then(response => response.json())
             .then(body => {
-                console.log(body.albums.items);
                 loadAlbums(body.albums.items);
             });
     });
