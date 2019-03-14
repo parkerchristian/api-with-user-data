@@ -36,6 +36,11 @@
     border: solid;
 }
 
+#album-list .favorite {
+    border: solid;
+    background: rgb(221, 173, 255);
+}
+
 #album-list li img {
     width: 100px;
 }
