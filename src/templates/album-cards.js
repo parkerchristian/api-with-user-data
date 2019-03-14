@@ -29,6 +29,18 @@ export default function loadAlbums(albums) {
         const favoritesFolderRef = favoritesByUserRef.child(userID);
         const favoritedAlbumRef = favoritesFolderRef.child(album.id);
 
+        favoritedAlbumRef.once('value')
+            .then(snapshot => {
+                const value = snapshot.val();
+                if(value) {
+                    isFavorite = true;
+                    favoriteNode.classList.add('favorite');
+                } else {
+                    isFavorite = false;
+                    favoriteNode.classList.remove('favorite');
+                }
+            });
+
         favoriteNode.addEventListener('click', () => {
             //add a favorite class
             if(isFavorite) {
