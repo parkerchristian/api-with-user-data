@@ -1,3 +1,5 @@
+import { auth, favoritesByUserRef } from '../firebase/firebase.js';
+
 export function makeAlbumCard(album) {
     const artistList = album.artists.map(artist => artist.name).join(', ');
     const html = `
@@ -23,16 +25,25 @@ export default function loadAlbums(albums) {
         const favoriteNode = albumCard.querySelector('span');
         
         let isFavorite = false;
+        const userID = auth.currentUser.uid;
+        const favoritesFolderRef = favoritesByUserRef.child(userID);
+        const favoritedAlbumRef = favoritesFolderRef.child(album.id);
 
         favoriteNode.addEventListener('click', () => {
             //add a favorite class
             if(isFavorite) {
                 isFavorite = false;
                 favoriteNode.classList.remove('favorite');
+                favoritedAlbumRef.remove();
                 // favoriteNode.textContent = '🎵';
             } else {
                 isFavorite = true;
                 favoriteNode.classList.add('favorite');
+                favoritedAlbumRef.set({
+                    name: album.name,
+                    images: album.images,
+                    artists: album.artists
+                });
                 // favoriteNode.textContent = '🎵';
             }
 
