@@ -1,9 +1,10 @@
 import { auth } from '../firebase/firebase.js';
 
 export function makeProfileDisplay(user) {
+    const photo = user.photoURL || 'https://uvmbored.com/wp-content/uploads/2017/09/blank-profile-picture.jpg';
     const html = `
         <span id="profile-display">
-            <img src="${user.photoURL}">
+            <img src="${photo}">
             <h2>${user.displayName}</h2>
             <input type="submit" value="Sign Out">
         </span>

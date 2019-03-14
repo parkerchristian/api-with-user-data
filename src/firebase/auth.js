@@ -9,6 +9,7 @@ ui.start('#auth-ui-section', {
     signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     ],
     //signInSuccsessful
     signInSuccessUrl: './',
@@ -21,7 +22,7 @@ ui.start('#auth-ui-section', {
                 .set({
                     uid: user.uid,
                     displayName: user.displayName,
-                    photoURL: user.photoURL
+                    photoURL: user.photoURL 
                 });
             return true;
         }
