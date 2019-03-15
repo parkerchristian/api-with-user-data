@@ -2,7 +2,7 @@
 const nextButton = document.getElementById('next-button');
 const previousButton = document.getElementById('previous-button');
 const currentPage = document.getElementById('current-page');
-const totalPages = document.getElementById('total-pages');
+// const totalPagesNode = document.getElementById('total-pages');
 
 let pagingObject = {
     currentPage: 1,
