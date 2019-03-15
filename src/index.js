@@ -3,6 +3,7 @@ import { fetchSpotifyApi } from './fetch/fetch-function.js';
 import { readFromQuery } from './hash-query/query-components.js';
 import { makeURL } from './hash-query/make-url.js';
 import './hash-query/search-components.js';
+import './paging/paging-components.js';
 
 loadProfileDisplay();
 
