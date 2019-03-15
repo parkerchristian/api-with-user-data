@@ -1,17 +1,9 @@
+import { currentPageToOffset } from '../../src/paging/paging-functions.js';
+
 const test = QUnit.test;
 
 QUnit.module('PAGING COMPONENT TESTS');
 
-function currentPageToOffset(options) {
-
-    const offset = ((options.currentPage - 1) * options.limit);
-
-    const offsetObject = {
-        offset: offset,
-        limit: options.limit
-    };
-    return offsetObject;
-}
 
 test('Page 3 of 5 with limit 20', assert => {
     //Arrange
