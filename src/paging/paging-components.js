@@ -8,6 +8,9 @@ let pagingObject = {
     currentPage: 1,
     totalPages: 10
 };
+
+checkForDisable(pagingObject);
+
 nextButton.addEventListener('click', () => {
     pagingObject.currentPage++;
     checkForDisable(pagingObject);
