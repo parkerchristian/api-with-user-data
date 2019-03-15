@@ -16,7 +16,6 @@ const postOptions = {
 
 export function fetchSpotifyApi(baseGetUrl) {
 
-    // const baseGetUrl = 'https://api.spotify.com/v1/search?q=cher&type=album&market=US';
     const getUrl = corsAnywhereUrl + baseGetUrl;
     
     fetch(postUrl, postOptions)

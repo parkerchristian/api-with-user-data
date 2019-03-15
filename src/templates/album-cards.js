@@ -42,12 +42,10 @@ export default function loadAlbums(albums) {
             });
 
         favoriteNode.addEventListener('click', () => {
-            //add a favorite class
             if(isFavorite) {
                 isFavorite = false;
                 favoriteNode.classList.remove('favorite');
                 favoritedAlbumRef.remove();
-                // favoriteNode.textContent = '🎵';
             } else {
                 isFavorite = true;
                 favoriteNode.classList.add('favorite');
@@ -57,10 +55,7 @@ export default function loadAlbums(albums) {
                     images: album.images,
                     artists: album.artists
                 });
-                // favoriteNode.textContent = '🎵';
             }
-
-            //add the album to favorites database
         });
 
         albumList.appendChild(albumCard);

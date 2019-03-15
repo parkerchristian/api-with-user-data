@@ -13,7 +13,6 @@ auth.onAuthStateChanged(user => {
         .then(snapshot => {
             const data = snapshot.val();
             const favoriteList = objectToArray(data);
-            console.log(favoriteList);
             loadAlbums(favoriteList);
         });
 });

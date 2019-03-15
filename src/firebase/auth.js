@@ -1,6 +1,5 @@
 import { auth, userRef } from './firebase.js';
 
-
 const ui = new firebaseui.auth.AuthUI(auth);
 
 ui.start('#auth-ui-section', {
