@@ -6,6 +6,8 @@ export function makeProfileDisplay(user) {
         <span id="profile-display">
             <img src="${photo}">
             <h2>${user.displayName}</h2>
+            <h3><a href="./index.html">Home</a></h3>
+            <h3><a href="./favorites.html">My Favorites</a></h3>
             <input type="submit" value="Sign Out">
         </span>
     `; 

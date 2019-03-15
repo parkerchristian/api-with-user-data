@@ -10,6 +10,8 @@ test('create profile display', assert => {
         <span id="profile-display">
             <img src="http://hosting.med.upenn.edu/garcialab/wp-content/uploads/sites/12/2015/10/Blank-Profile-Icon.jpg">
             <h2>Display Name</h2>
+            <h3><a href="./index.html">Home</a></h3>
+            <h3><a href="./favorites.html">My Favorites</a></h3>
             <input type="submit" value="Sign Out">
         </span>
     `;
